@@ -15,18 +15,20 @@ public class PropertiesComponentTests {
     void setUp (){
         propertiesComponent = new PropertiesComponent();
     }
-
+/*
     @Test
-    void testandoGetName (){
+     void testingGetName(){
 
         Assertions.assertNotNull(propertiesComponent.getName());
 
     }
 
     @Test
-    void testandoGetVersion (){
+    void testingGetVersion(){
 
         Assertions.assertNotNull(propertiesComponent.getVersion());
 
     }
+
+ */
 }

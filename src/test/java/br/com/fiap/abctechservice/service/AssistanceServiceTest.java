@@ -27,7 +27,7 @@ public class AssistanceServiceTest {
         MockitoAnnotations.openMocks(this);
         assistanceService = new AssistanceServiceImpl(assistanceRepository);
     }
-/*
+
     @Test
     public void test_list_success(){
         Assistance itemAssist = new Assistance(1L, "Mock Name", "Mock Description");
@@ -42,6 +42,4 @@ public class AssistanceServiceTest {
         Assertions.assertSame(values.get(1), itemAssist2);
 
     }
-
- */
 }

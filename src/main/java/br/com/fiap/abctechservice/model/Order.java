@@ -1,4 +1,3 @@
-//Order.java
 package br.com.fiap.abctechservice.model;
 
 import lombok.AllArgsConstructor;
@@ -50,7 +49,12 @@ public class Order {
     @JoinColumn(name = "end_order_location_id")
     private OrderLocation endOrderLocation;
 
-    public Boolean hasMinAssists () { return services.size() > 0;}
-    public Boolean exceedsMaxAssists () { return services.size() > 15;}
 
+    public boolean hasMinAssists (){
+        return services.size() > 0;
+    }
+
+    public boolean exceedsMaxAssists () {
+        return services.size() > 15;
+    }
 }

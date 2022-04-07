@@ -5,5 +5,7 @@ import java.util.List;
 
 
 public interface OrderService {
-    void saveOrder (Ordem ordem) throws Exaption;
-    List<Order> list.Orderbyoperator.(long operatorId)
+    void saveOrder(Order order) throws Exception;
+
+    List<Order> listOrdersByOperator(Long operatorId);
+}

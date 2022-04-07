@@ -3,11 +3,15 @@ package br.com.fiap.abctechservice.service;
 
 import br.com.fiap.abctechservice.model.Assistance;
 import br.com.fiap.abctechservice.repository.AssistanceRepository;
+import br.com.fiap.abctechservice.repository.OrderRepository;
 import br.com.fiap.abctechservice.service.impl.AssistanceServiceImpl;
+import br.com.fiap.abctechservice.service.impl.OrderServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
@@ -23,12 +27,12 @@ public class OrderServiceTest {
 
     @Mock
     private OrderRepository orderRepository;
-    private OrderService OrderService;
+    private OrderService orderService;
 
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        OrderService = new OrderServiceImpl(OrderRepository);
+        orderService = new OrderServiceImpl(orderRepository);
     }
 /*
     @Test
@@ -79,8 +83,8 @@ public class OrderServiceTest {
         return arrayList;
     }
 
+*/
 
 
- */
 }
 

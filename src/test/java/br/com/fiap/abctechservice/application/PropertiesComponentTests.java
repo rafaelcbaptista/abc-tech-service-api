@@ -15,6 +15,7 @@ public class PropertiesComponentTests {
     void setUp (){
         propertiesComponent = new PropertiesComponent();
     }
+
 /*
     @Test
      void testingGetName(){
@@ -30,5 +31,5 @@ public class PropertiesComponentTests {
 
     }
 
- */
+*/
 }

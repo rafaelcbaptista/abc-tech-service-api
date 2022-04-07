@@ -40,6 +40,14 @@ public class AssistanceServiceTest {
         Assertions.assertEquals(values.size(), 2);
         Assertions.assertSame(values.get(0), itemAssist);
         Assertions.assertSame(values.get(1), itemAssist2);
+    }
 
+    @Test
+    public void test_list_empty(){
+        when(assistanceRepository.findAll()).thenReturn(List.of());
+
+        List<Assistance> values = assistanceService.getAssistsList();
+
+        Assertions.assertEquals(values.size(), 0);
     }
 }

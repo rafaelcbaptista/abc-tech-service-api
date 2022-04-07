@@ -5,31 +5,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-
 @SpringBootTest
 public class PropertiesComponentTests {
     private PropertiesComponent propertiesComponent;
 
     @BeforeEach
-    void setUp (){
+    void setUp() {
         propertiesComponent = new PropertiesComponent();
     }
-
-/*
     @Test
-     void testingGetName(){
-
+    void testingGetName() {
         Assertions.assertNotNull(propertiesComponent.getName());
-
+        Assertions.assertEquals("abc-tech-service", propertiesComponent.getName());
     }
 
     @Test
-    void testingGetVersion(){
-
+    void testingGetVersion() {
         Assertions.assertNotNull(propertiesComponent.getVersion());
-
     }
 
-*/
+
 }

@@ -27,7 +27,6 @@ public class OrderApplicationImpl implements OrderApplication {
         order.setEndOrderLocation(getOrderLocationFromOrderLocationDto(orderDto.getEnd()));
 
         this.orderService.saveOrder(order, orderDto.getServices());
-
     }
 
 

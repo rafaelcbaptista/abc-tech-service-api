@@ -8,4 +8,3 @@ public interface AssistanceApplication {
 
     public List<AssistDto> getAssists();
 }
-

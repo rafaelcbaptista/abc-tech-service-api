@@ -41,12 +41,12 @@ public class Order {
     @ManyToMany
     private List<Assistance> services;
 
-    @OneToOne
-    @JoinColumn(name = "start_order_location_id")
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "start_order_location_id", foreignKey = @ForeignKey(name ="FK_start_order_id"))
     private OrderLocation startOrderLocation;
 
-    @OneToOne
-    @JoinColumn(name = "end_order_location_id")
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "end_order_location_id" , foreignKey = @ForeignKey(name ="FK_end_order_id"))
     private OrderLocation endOrderLocation;
 
 
@@ -57,6 +57,4 @@ public class Order {
     public boolean exceedsMaxAssists () {
         return services.size() > 15;
     }
-
-
 }

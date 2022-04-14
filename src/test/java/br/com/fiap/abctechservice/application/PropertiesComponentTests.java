@@ -18,11 +18,11 @@ public class PropertiesComponentTests {
         Assertions.assertNotNull(propertiesComponent.getName());
         Assertions.assertEquals("abc-tech-service", propertiesComponent.getName());
     }
-/*
+
     @Test
     void testingGetVersion() {
         Assertions.assertNotNull(propertiesComponent.getVersion());
     }
-*/
+
 
 }

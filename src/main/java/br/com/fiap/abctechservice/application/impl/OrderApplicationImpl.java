@@ -33,7 +33,7 @@ public class OrderApplicationImpl implements OrderApplication {
     private OrderLocation getOrderLocationFromOrderLocationDto(OrderLocationDto orderLocationDto) {
         OrderLocation location = new OrderLocation();
         location.setLatitude(orderLocationDto.getLatitude());
-        location.setLongitude(orderLocationDto.getLatitude());
+        location.setLongitude(orderLocationDto.getLongitude());
         location.setDate(orderLocationDto.getDateTime());
         return location;
     }

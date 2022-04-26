@@ -7,19 +7,18 @@ import br.com.fiap.abctechservice.model.Order;
 import br.com.fiap.abctechservice.repository.AssistanceRepository;
 import br.com.fiap.abctechservice.repository.OrderRepository;
 import br.com.fiap.abctechservice.service.impl.OrderServiceImpl;
-import org.aspectj.weaver.ast.Or;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -45,33 +44,40 @@ public class OrderServiceTest {
     }
 
     @Test
-    public void create_order_success() throws Exception {
+    public void create_order_success() {
         Order newOrder = new Order();
         newOrder.setOperatorId(1234L);
 
         orderService.saveOrder(newOrder, generate_mock_assistance(1));
 
-
         verify(orderRepository, times(1)).save(newOrder);
     }
 
     @Test
-    public void create_order_error_minimum() throws Exception {
+    public void create_order_error_minimum() {
         Order newOrder = new Order();
         newOrder.setOperatorId(1234L);
 
+        assertThrows(MinimumAssistsRequiredException.class, () -> orderService.saveOrder(newOrder, List.of()));
 
-        Assertions.assertThrows(MinimumAssistsRequiredException.class, () -> orderService.saveOrder(newOrder, List.of()));
         verify(orderRepository, times(0)).save(newOrder);
     }
 
     @Test
-    public void create_order_error_maximum() throws Exception {
+    public void create_order_error_maximum() {
         Order newOrder = new Order();
         newOrder.setOperatorId(1234L);
 
-        Assertions.assertThrows(MaxAssistsException.class, () -> orderService.saveOrder(newOrder, generate_mock_assistance(20)));
+        assertThrows(MaxAssistsException.class, () -> orderService.saveOrder(newOrder, generate_mock_assistance(20)));
+
         verify(orderRepository, times(0)).save(newOrder);
+    }
+
+    @Test
+    public void list_order_by_operator_id() {
+        var list = assertDoesNotThrow(() -> orderService.listOrdersByOperator(1L));
+
+        assertEquals(0, list.size());
     }
 
     private List<Long> generate_mock_assistance(int number) {

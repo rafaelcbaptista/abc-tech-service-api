@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private OrderRepository orderRepository;
-    private AssistanceRepository assistanceRepository;
+    private final OrderRepository orderRepository;
+    private final AssistanceRepository assistanceRepository;
 
     public OrderServiceImpl (@Autowired OrderRepository orderRepository,
                              @Autowired AssistanceRepository assistanceRepository) {
@@ -47,6 +47,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> listOrdersByOperator(Long operatorId) {
-        return null;
+        return orderRepository.findAll();
     }
 }
